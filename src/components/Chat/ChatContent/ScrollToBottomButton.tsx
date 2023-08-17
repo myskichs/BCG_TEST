@@ -7,8 +7,8 @@ const ScrollToBottomButton = React.memo(() => {
   const scrollToBottom = useScrollToBottom();
   const [atBottom] = useAtBottom();
 
-  // Function for the onClick event
-  const handleClick = () => {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
     scrollToBottom();
   };
 
@@ -18,7 +18,7 @@ const ScrollToBottomButton = React.memo(() => {
         atBottom ? 'hidden' : ''
       }`}
       aria-label='scroll to bottom'
-      onClick={handleClick} // Modified part
+      onClick={handleClick}
     >
       <DownArrow />
     </button>
